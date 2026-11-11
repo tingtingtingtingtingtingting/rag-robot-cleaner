@@ -1,0 +1,9 @@
+# RAG 主模型配置（兼容 SiliconFlow，ChatOpenAI 格式调用）
+chat_model_name: "deepseek-ai/DeepSeek-V3"
+chat_api_key: "sk-nzemunblircnzfyyyyqprfyakqowwicvvjzktlwuyczlcoqo"
+chat_base_url: "https://api.siliconflow.cn/v1"
+
+# Embedding 嵌入模型（如果你也用 siliconflow，替换成对应 embedding 模型名）
+embedding_model_name: "BAAI/bge-m3"
+embedding_api_key: "sk-nzemunblircnzfyyyyqprfyakqowwicvvjzktlwuyczlcoqo"
+embedding_base_url: "https://api.siliconflow.cn/v1"
