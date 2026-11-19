@@ -12,7 +12,7 @@ k: v
 4. 方便拆分多份配置（rag /chroma/agent），结构清晰。
 """
 import yaml
-from path_tool import get_abs_path
+from utils.path_tool import get_abs_path
 
 
 def load_rag_config(config_path: str=get_abs_path("config/rag.yml"), encoding: str="utf-8"):

@@ -1,3 +1,5 @@
+# 这是一个**封装好的向量库服务类 `VectorStoreService`**：
+# 启动后自动扫描你的知识库文件夹，通过 MD5 做文件级去重，加载 pdf/txt → 切成片段 → 向量化存入 Chroma；同时对外提供检索器，你可以输入问题，召回相关文档片段，是整套 RAG 的【知识库入库 + 检索模块】
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from utils.config_handler import chroma_conf
@@ -26,6 +28,7 @@ class VectorStoreService:
             length_function=len,
         )
 
+        # 初始化向量检索器
     def get_retriever(self):
         return self.vector_store.as_retriever(search_kwargs={"k": chroma_conf["k"]})
 
@@ -36,6 +39,7 @@ class VectorStoreService:
         :return: None
         """
 
+        
         def check_md5_hex(md5_for_check: str):
             if not os.path.exists(get_abs_path(chroma_conf["md5_hex_store"])):
                 # 创建文件
@@ -109,7 +113,7 @@ if __name__ == '__main__':
 
     retriever = vs.get_retriever()
 
-    res = retriever.invoke("迷路")
+    res = retriever.invoke("故障现象：机器人开机无反应，指示灯不亮；")
     for r in res:
         print(r.page_content)
         print("-"*20)

@@ -1,6 +1,6 @@
 import os
 import hashlib
-from logger_handler import logger
+from utils.logger_handler import logger
 from langchain_core.documents import Document
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
 
@@ -50,7 +50,8 @@ def listdir_with_allowed_type(path: str, allowed_types: tuple[str]):        # �
 
     return tuple(files)
 
-
+# 文件 → loader → [Document] → RecursiveCharacterTextSplitter（切片）→ embedding → chroma 
+# LangChain 的分割器、向量库，入参要求就是 Iterable[Document]。
 def pdf_loader(filepath: str, passwd=None) -> list[Document]:
     return PyPDFLoader(filepath, passwd).load()
 

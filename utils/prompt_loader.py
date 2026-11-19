@@ -2,9 +2,9 @@
 # 从 yaml 拿到提示词文件路径，读取 txt 里写好的提示词文本；把
 # 提示词和业务代码拆开，方便改提示词，不用动 Python
 
-from config_handler import prompts_conf
-from path_tool import get_abs_path
-from logger_handler import logger
+from utils.config_handler import prompts_conf
+from utils.path_tool import get_abs_path
+from utils.logger_handler import logger
 
 
 def load_system_prompts():

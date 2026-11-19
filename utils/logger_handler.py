@@ -1,6 +1,6 @@
 # Python 日志封装工具（logger 模块）
 import logging
-from path_tool import get_abs_path
+from utils.path_tool import get_abs_path
 import os
 from datetime import datetime
 
